@@ -9,10 +9,7 @@ const $btnAgregar = d.querySelector('#btn_agregar');
 
 d.addEventListener('click', async (e)=>{
   if(e.target.matches('#btn_agregar')){
-    // axios({
-    //   method: 'POST',
-      
-    // })
+
   }
 
 });

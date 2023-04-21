@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { conectar } from './src/mysql_conector.js';
+import { connection } from './src/mysql_conector.js';
 import axios from 'axios';
 
 const app = express();
@@ -21,8 +21,14 @@ app.use(express.static('./css'));
 app.use(express.static('./src'));
 
 
-app.get('/', (req, res)=>{
-  conectar();
+app.get('/', async (req, res)=>{
+
+  // connection.connect(err=>{
+  //   if (err) throw err;
+  //   console.log(`conectado`);
+  //   return;
+  // });
+
   res.render('index', {titulo: "Titulo Pagina"}); 
 });
 

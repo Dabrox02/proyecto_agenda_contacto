@@ -1,19 +1,11 @@
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 // ***** CREAR CONEXION *****
-const conector = mysql.createConnection({
+const connection = mysql.createConnection({
   host: 'localhost',
   user: 'dabrox',
   password: '123456',
   database: 'agenda_contacto',
 })
 
-const conectar = ()=>{
-  conector.connect(err=>{
-    if (err) throw err;
-    console.log(`conectado`);
-    return;
-  });
-}
-
-export { conectar };
+export { connection };
