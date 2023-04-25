@@ -8,4 +8,19 @@ const connection = mysql.createConnection({
   database: 'agenda_contacto',
 })
 
-export { connection };
+
+const agregarContacto = async (data)=>{
+	const { name, tel } = data;
+
+	const sql = `INSERT INTO agenda (id_agenda, nombre_contacto, numero_contacto) VALUES(${null}, "${name}", ${tel})`;
+	console.log(sql);
+
+	connection.query(sql, (err, res)=>{
+		if (err) throw err;
+		console.log(res);
+	});
+
+	connection.end();
+}
+
+export { connection, agregarContacto };
