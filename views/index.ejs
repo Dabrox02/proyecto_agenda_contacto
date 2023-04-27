@@ -5,30 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agenda Contacto</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="/js/funciones.js" type="module"></script>
   </head>
   <body>
-    <header>
-      <h1>Agenda Contacto</h1>
+    <header class="header">
+      <h1 class="title-1">AGENDA CONTACTO</h1>
     </header>
-    <div class="container">
-      <form id="form-agenda">
-        <input type="text" placeholder="Ingresa nombre" id="nombre" />
-        <input type="text" placeholder="Ingresa numero" id="numero" />
-        <input type="button" value="Enviar" id="btn_agregar" />
-      </form>
-    </div>
-    <div>
-      <ul>
-        <% contacts.forEach((contact)=> { %>
-        <li>
-          <span><%= contact.id_agenda %></span>
-          | <span><%= contact.nombre_contacto %></span>
-          | <span><%= contact.numero_contacto %></span>
-        </li>
-        <% }) %>
-      </ul>
-    </div>
-    <script src="funciones.js" type="module"></script>
+    <main class="main">
+      <div class="container-form">
+        <form id="form-agenda" class="form-agenda">
+          <input
+            type="text"
+            placeholder="Ingresa nombre"
+            id="nombre"
+            class="input input__form"
+          />
+          <input
+            type="text"
+            placeholder="Ingresa numero"
+            id="numero"
+            class="input input__form"
+          />
+          <input
+            type="button"
+            value="Enviar"
+            id="btn_agregar"
+            class="boton boton__form"
+          />
+        </form>
+      </div>
+      <div class="container-records">
+        <table class="table-records">
+          <th class="table-head">
+            <tr class="table-row">
+              <td class="table-data__head">Id Contacto</td>
+              <td class="table-data__head">Nombre Contacto</td>
+              <td class="table-data__head">Numero Contacto</td>
+              <td class="table-data__head">Funciones</td>
+            </tr>
+          </th>
+
+          <% contacts.forEach((contact)=> { %>
+          <tr class="table-row">
+            <td class="table-data__data"><%= contact.id_agenda %></td>
+            <td class="table-data__data"><%= contact.nombre_contacto %></td>
+            <td class="table-data__data"><%= contact.numero_contacto %></td>
+            <td class="table-data__data">
+              <i
+                class="bi bi-trash3-fill delete"
+                id="<%= contact.id_agenda %>"
+              ></i>
+            </td>
+          </tr>
+          <% }) %>
+        </table>
+      </div>
+    </main>
   </body>
 </html>

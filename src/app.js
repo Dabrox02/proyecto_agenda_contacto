@@ -22,8 +22,8 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // ****** ARCHIVOS ESTATICOS ******
-app.use(express.static("./../views"));
-app.use(express.static("./../css"));
+// ??? EXPRESS YA RECONOCE VIEWS PARA RENDERIZAR app.use(express.static("./../views"));
+app.use(express.static("public")); // CON ESTO YA NO ES NECESARIO ESPECIFICAR LA CARPETA PUBLICA
 
 // ROUTES
 app.use(contactRoutes);
